@@ -1,0 +1,43 @@
+/*!
+ * jQuery Vertical Carousel
+ * https://github.com/haripaddu/jQuery-Vertical-Carousel
+ * Version: 1.0
+ * License: MIT
+ */
+/* line 10, ../sass/jQuery.verticalCarousel.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 14, ../sass/jQuery.verticalCarousel.scss */
+.vc_goUp, .vc_goDown {
+  display: block;
+}
+/* line 16, ../sass/jQuery.verticalCarousel.scss */
+.vc_goUp.isDisabled, .vc_goDown.isDisabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* line 21, ../sass/jQuery.verticalCarousel.scss */
+.vc_container {
+  overflow: hidden;
+  -moz-transition: height 0.2s ease-in;
+  -o-transition: height 0.2s ease-in;
+  -webkit-transition: height 0.2s ease-in;
+  transition: height 0.2s ease-in;
+}
+
+/* line 25, ../sass/jQuery.verticalCarousel.scss */
+.vc_list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -moz-transition: -moz-transform 0.2s ease-in;
+  -o-transition: -o-transform 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+}
