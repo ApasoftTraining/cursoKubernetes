@@ -1,3 +1,6 @@
+#############################
+## SERVICIO PARA WORDPRESS ##
+#############################
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,19 +15,28 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
+
+##########################
+## CLAIM PARA WORDPRESS ##
+##########################
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: wp-pv-claim
+  name: nfs-pvc-wordpress 
   labels:
     app: wordpress
 spec:
+  storageClassName: v1
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
 ---
+
+###############################
+## DEPLOYMENT PARA WORDPRESS ##
+###############################
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
@@ -64,4 +76,4 @@ spec:
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
-          claimName: wp-pv-claim
+          claimName: nfs-pvc-wordpress 

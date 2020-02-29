@@ -1,3 +1,6 @@
+#####################
+## SERVICIO MYSQL  ##
+#####################
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,19 +15,24 @@ spec:
     tier: mysql
   clusterIP: None
 ---
+######################
+## CLAIM PARA MYSQL ##
+######################
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
-  labels:
-    app: wordpress
+  name: nfs-pvc-mysql
 spec:
+  storageClassName: volumen-nfs-mysql
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 20Gi
 ---
+########################
+## DEPLOYMENT  MYSQL  ##
+########################
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
@@ -62,4 +70,4 @@ spec:
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: nfs-pvc-mysql

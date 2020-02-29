@@ -1,14 +1,36 @@
+#####################
+## PV para MySQL  ###
+#####################
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-pv
+  name: nfs-pv-mysql
 spec:
   capacity:
-    storage: 5Gi
+    storage: 25Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
-  storageClassName: volumen-nfs
+  storageClassName: volumen-nfs-mysql
   nfs:
-    path: /var/datos
+    path: /home/kubernetes/datos/mysql
     server: 192.168.174.131
+---
+##########################
+## PV para WordPress    ##
+##########################
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv-wordpress
+spec:
+  capacity:
+    storage: 25Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: v1
+  nfs:
+    path: /home/kubernetes/datos/wordpress
+    server: 192.168.174.131
+
