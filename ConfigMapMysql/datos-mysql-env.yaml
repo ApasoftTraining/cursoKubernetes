@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  MYSQL_DATABASE: kubernetes
+  MYSQL_PASSWORD: usupass
+  MYSQL_ROOT_PASSWORD: kubernetes
+  MYSQL_USER: usudb
+kind: ConfigMap
+metadata:
+  name: datos-mysql-env
+  namespace: default

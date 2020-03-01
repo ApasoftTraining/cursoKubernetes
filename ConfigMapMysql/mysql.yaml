@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deploy
+  labels:
+    app: mysql
+    type: db
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: mysql
+      type: db
+  template:
+    metadata:
+      labels:
+        app: mysql
+        type: db
+    spec:
+      containers:
+        - name: mysql57
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
+              name: db-port
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: datos-mysql-env
+                  key: MYSQL_ROOT_PASSWORD
+
+            - name: MYSQL_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: datos-mysql-env
+                  key: MYSQL_USER
+            
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: datos-mysql-env
+                  key: MYSQL_DATABASE
+
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: datos-mysql-env
+                  key: MYSQL_PASSWORD
