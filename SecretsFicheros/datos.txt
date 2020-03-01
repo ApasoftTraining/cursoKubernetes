@@ -1,0 +1,3 @@
+Esto es un ejemplo de secrets
+incorporaos desde fichero
+dentro de un contenedor
