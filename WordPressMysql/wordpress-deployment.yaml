@@ -15,25 +15,6 @@ spec:
     tier: frontend
   type: LoadBalancer
 ---
-
-##########################
-## CLAIM PARA WORDPRESS ##
-##########################
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nfs-pvc-wordpress 
-  labels:
-    app: wordpress
-spec:
-  storageClassName: v1
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 20Gi
----
-
 ###############################
 ## DEPLOYMENT PARA WORDPRESS ##
 ###############################

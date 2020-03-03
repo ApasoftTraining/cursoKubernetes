@@ -15,20 +15,6 @@ spec:
     tier: mysql
   clusterIP: None
 ---
-######################
-## CLAIM PARA MYSQL ##
-######################
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: nfs-pvc-mysql
-spec:
-  storageClassName: volumen-nfs-mysql
-  accessModes:
-    - ReadWriteMany
-  resources:
-    requests:
-      storage: 20Gi
 ---
 ########################
 ## DEPLOYMENT  MYSQL  ##
@@ -57,10 +43,7 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mysql-pass
-              key: password
+          value: password
         ports:
         - containerPort: 3306
           name: mysql

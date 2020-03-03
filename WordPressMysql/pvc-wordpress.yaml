@@ -1,0 +1,14 @@
+###########################
+## CLAIM PARA  WORDPRESS ##
+###########################
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-wordpress
+spec:
+  storageClassName: wordpress
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
