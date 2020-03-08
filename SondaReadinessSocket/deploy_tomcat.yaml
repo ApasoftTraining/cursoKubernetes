@@ -17,10 +17,11 @@ spec:
       containers:
       - name: tomcat
         image: apasoft/tomcat
+        command: ['sh', '-c', '   sleep 40 && /opt/tomcat/bin/catalina.sh run']
         ports:
         - containerPort: 8080
         readinessProbe:
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 5
-            periodSeconds: 10
+            initialDelaySeconds: 0
+            periodSeconds: 5

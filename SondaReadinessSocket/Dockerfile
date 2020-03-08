@@ -1,6 +1,6 @@
 FROM centos
 
-MAINTAINER aksarav@middlewareinventory.com
+MAINTAINER apasoft.training@gmail.com
 
 RUN mkdir /opt/tomcat/
 
@@ -15,4 +15,3 @@ WORKDIR /opt/tomcat/webapps
 COPY app1.war .
 EXPOSE 8080
 
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
