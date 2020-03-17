@@ -5,6 +5,6 @@ En este repositorio estoy depositando todos los ficheros que necesitamos para ha
 
 PAra cualquier información me puedes contactar en 
 
-apasoft.trainig@gmail.com
+apasoft.training@gmail.com
 
 www.apasoft-training.com
