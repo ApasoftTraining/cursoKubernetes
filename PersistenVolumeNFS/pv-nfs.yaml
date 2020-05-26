@@ -11,4 +11,4 @@ spec:
   storageClassName: volumen-nfs
   nfs:
     path: /var/datos
-    server: 192.168.174.131
+    server: 192.168.174.138
