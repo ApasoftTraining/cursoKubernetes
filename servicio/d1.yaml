@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-d
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 10
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: nginx:1.18
+        imagePullPolicy: Always
+        name: apache
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

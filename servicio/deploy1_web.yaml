@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # i se Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Deployment
+metadata:
+  name: web-d
+spec:
+  selector:   #permite seleccionar un conjunto de objetos que cumplan las condicione
+    matchLabels:
+      app: web
+  replicas: 10 # indica al controlador que ejecute 2 pods
+  template:   # Plantilla que define los containers
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: apache
+        image: nginx:1.18
+        ports:
+        - containerPort: 80
+
