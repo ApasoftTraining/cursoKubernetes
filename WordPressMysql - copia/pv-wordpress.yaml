@@ -1,0 +1,17 @@
+#########################
+## PV para WORDPRESS  ###
+########################
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-wordpress
+spec:
+  capacity:
+    storage: 25Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: wordpress
+  nfs:
+    path: /home/kubernetes/datos/wordpress
+    server: 192.168.174.138

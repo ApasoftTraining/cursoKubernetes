@@ -1,0 +1,14 @@
+######################
+## CLAIM PARA MYSQL ##
+######################
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-mysql
+spec:
+  storageClassName: mysql
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi

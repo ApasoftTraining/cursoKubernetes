@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    test: liveness
+  name: sonda-liveness
+spec:
+  containers:
+  - name: pod-liveness
+    image: ubuntu
+    args:
+    - /bin/sh
+    - -c
+    - mkdir /tmp/prueba; sleep 30; rm -rf /tmp/prueba; sleep 600
+    livenessProbe:
+      exec:
+        command:
+        - ls
+        - /tmp/prueba
+      initialDelaySeconds: 5
+      periodSeconds: 5
+
